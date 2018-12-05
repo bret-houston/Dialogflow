@@ -19,8 +19,7 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r 
     
-def makeResponse(req):
-    result = req.get("result")    
+def makeResponse(req): 
     answer=requests.get('https://us3.uscubed.com/GoogleWebhook.aspx')
     return answer   
     
