@@ -20,13 +20,24 @@ def webhook():
     return r 
     
 def makeResponse(req):
-    return {"fulfillmentMessages": [{ "text": {	"text": [ "This is my webhook response"	] }}  ]	}"    
- #   result = req.get("result")
- #   r=requests.get('https://us3.uscubed.com/GoogleWebhook.aspx')
- #   json_object = r.json()
- #   weather=json_object['fulfillmentMessages']
- #   condition=weather[0]['text']['text'][0]
- #   speech = "My response is " + condition
+    result = req.get("result")
+    parameters = result.get("parameters")
+    city = parameters.get("geo-city")
+    date = parameters.get("date")
+    
+    r=requests.get('https://samples.openweathermap.org/data/2.5/forecast?q='+city+'&appid=b6907d289e10d714a6e88b30761fae22.com')
+    json_object = r.json()
+    weather=json_object['list']
+    for i in range(0,30):
+        if date in weather[i]['dt_txt']:
+            condition=weather[i]['weather'][0]['description']
+            break
+    speech = "The forcast for " + city + " for " + date + " is " + condition
+    return {
+    "speech" : speech,
+    "displayText": speech,
+    "source": "apiai-weather-webhook"
+    }
 
     
 if __name__ == '__main__':
