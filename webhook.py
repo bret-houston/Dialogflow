@@ -20,8 +20,8 @@ def webhook():
     return r 
     
 def makeResponse(req): 
-    answer=requests.get('https://us3.uscubed.com/GoogleWebhook.aspx')
-    return answer   
+    r=requests.get('https://us3.uscubed.com/GoogleWebhook.aspx')
+    return r.text   
     
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
