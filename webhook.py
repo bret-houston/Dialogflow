@@ -20,7 +20,14 @@ def webhook():
     return r 
     
 def makeResponse(req):
-    return {"fulfillmentMessages": [{ "text": {	"text": [ "This is my webhook response"	] }}  ]	}    
+    return {"fulfillmentMessages": [{ "text": {	"text": [ "This is my webhook response"	], "speech": ["This is my webhook response"]  }}  ]	}"    
+#   result = req.get("result")
+#   r=requests.get('https://us3.uscubed.com/GoogleWebhook.aspx')
+#   json_object = r.json()
+#   weather=json_object['fulfillmentMessages']
+#   condition=weather[0]['text']['text'][0]
+#   speech = "My response is " + condition    
+#    return {"fulfillmentMessages": [{ "text": {	"text": [ "This is my webhook response"	] }}  ]	}    
 #   result = req.get("result")
 #   r=requests.get('https://us3.uscubed.com/GoogleWebhook.aspx')
 #   json_object = r.json()
