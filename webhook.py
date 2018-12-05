@@ -20,23 +20,9 @@ def webhook():
     return r 
     
 def makeResponse(req):
-   result = req.get("result")    
-   answer=requests.get('https://us3.uscubed.com/GoogleWebhook.aspx')
-   return answer   
-#   result = req.get("result")
-#   r=requests.get('https://us3.uscubed.com/GoogleWebhook.aspx')
-#   json_object = r.json()
-#   weather=json_object['fulfillmentMessages']
-#   condition=weather[0]['text']['text'][0]
-#   speech = "My response is " + condition    
-#    return {"fulfillmentMessages": [{ "text": {	"text": [ "This is my webhook response"	] }}  ]	}    
-#   result = req.get("result")
-#   r=requests.get('https://us3.uscubed.com/GoogleWebhook.aspx')
-#   json_object = r.json()
-#   weather=json_object['fulfillmentMessages']
-#   condition=weather[0]['text']['text'][0]
-#   speech = "My response is " + condition
-
+    result = req.get("result")    
+    answer=requests.get('https://us3.uscubed.com/GoogleWebhook.aspx')
+    return answer   
     
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
