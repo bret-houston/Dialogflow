@@ -26,18 +26,7 @@ def makeResponse(req):
  #   weather=json_object['fulfillmentMessages']
  #   condition=weather[0]['text']['text'][0]
  #   speech = "My response is " + condition
-    return "{
-	
-	  "fulfillmentMessages": [
-		{
-		  "text": {
-			"text": [
-			  "This is my webhook response"
-			]
-		  }
-		}
-	  ]
-	}"
+    return {"fulfillmentMessages": [{ "text": {	"text": [ "This is my webhook response"	] }}  ]	}"
     
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
